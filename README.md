@@ -1,0 +1,2 @@
+# Burdle
+Better Wordle
