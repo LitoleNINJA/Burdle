@@ -11,7 +11,6 @@ export default function Home() {
     const res = words.solutions;
     const randomSolution = res[Math.floor(Math.random() * res.length)];
     setSolution(randomSolution.word);
-    console.log(randomSolution.word)
   }, [])
 
   return (
