@@ -1,27 +1,28 @@
+import Head from 'next/head';
+import { useState, useEffect } from 'react';
 import Wordle from '../components/Wordle'
+import words from '../data/words.json'
 
-export default function Home({ solution }) {
+export default function Home() {
+
+  const [solution, setSolution] = useState('');
+
+  useEffect(() => {
+    const res = words.solutions;
+    const randomSolution = res[Math.floor(Math.random() * res.length)];
+    setSolution(randomSolution.word);
+    console.log(randomSolution.word)
+  }, [])
 
   return (
-    <div className="flex flex-col items-center bg-black p-4 ">
-      <h1 className='text-5xl font-bold'>Burdle - Better Wordle</h1>
-      {solution && <Wordle solution={solution} />}
-    </div>
+    <>
+      <Head>
+        <title>Burdle</title>
+      </Head>
+      <div className="flex flex-col items-center bg-black p-4 divide-y-2 divide-gray">
+        <h1 className='text-5xl font-bold'>Burdle - Better Wordle</h1>
+        {solution && <Wordle solution={solution} />}
+      </div>
+    </>
   )
-}
-
-Home.getInitialProps = async () => {
-  const res = await fetch('http://localhost:3001/solutions', {
-    method: 'GET',
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': 0
-    }
-  });
-  const json = await res.json();
-  const randomSolution = json[Math.floor(Math.random() * json.length)];
-  return {
-    solution: randomSolution.word
-  }
 }

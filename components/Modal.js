@@ -1,10 +1,10 @@
-import close from '../data/close.png';
+
 
 export default function Modal({ isCorrect, turn, solution, setModalOpen }) {
     return (
         <div className="modal fixed w-full h-full top-0 left-0">
             {isCorrect ? (
-                <div className="bg-white p-4 pb-10 w-[480px] rounded-lg shadow-xl mx-auto my-60 flex flex-col items-center justify-center space-y-8">
+                <div className="bg-white p-4 pb-10 w-[480px] rounded-lg shadow-xl mx-auto my-48 flex flex-col items-center justify-center space-y-8">
                     <div className='self-end hover:cursor-pointer' onClick={() => {
                         setModalOpen(false)
                         window.location.reload()
