@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import useWordle from '../hooks/useWordle';
 import Game from './Game';
+import Hint from './Hint';
 import Keypad from './Keypad';
 import Modal from './Modal';
 
@@ -30,6 +31,7 @@ export default function Wordle({ solution }) {
         <div className='mt-4 w-full flex flex-col items-center justify-center'>
             <Game currentGuess={currentGuess} allGuesses={allGuesses} turn={turn} />
             <Keypad usedKeys={usedKeys} />
+            <Hint solution={solution} />
             {modalOpen && <Modal isCorrect={isCorrect} turn={turn} solution={solution} setModalOpen={setModalOpen} />}
         </div>
     )

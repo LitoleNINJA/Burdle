@@ -7,14 +7,20 @@ body {
   background-color: #121213;
   padding: 0;
   margin: 0;
-  font-family: 'Playfair Display SC', serif;
+  font-family: "Playfair Display SC", serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: white;
 }
 
