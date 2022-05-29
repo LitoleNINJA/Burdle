@@ -23,7 +23,7 @@ export default function Keypad({ usedKeys }) {
                         <div
                             key={i}
                             onClick={() => handleClick(letter)}
-                            className={`sm:w-10 m-1 w-9 h-12 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
+                            className={`sm:w-10 sm:h-12 m-1 w-6 h-10 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
                             <h3 className="uppercase font-bold">{letter}</h3>
                         </div>
                     )
@@ -36,7 +36,7 @@ export default function Keypad({ usedKeys }) {
                         <div
                             key={i}
                             onClick={() => handleClick(letter)}
-                            className={`sm:w-10 m-1 w-9 h-12 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
+                            className={`sm:w-10 sm:h-12 m-1 w-6 h-10 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
                             <h3 className="uppercase font-bold">{letter}</h3>
                         </div>
                     )
@@ -45,7 +45,7 @@ export default function Keypad({ usedKeys }) {
             <div className="keypad flex flex-row justify-center flex-wrap" >
                 <div
                     onClick={() => handleClick('Enter')}
-                    className={`m-1 w-20 h-12 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
+                    className={`sm:h-12 sm:w-20 m-1 w-18 h-10 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
                     <h3 className="uppercase font-bold">ENTER</h3>
                 </div>
                 {letters[2].map((letter, i) => {
@@ -54,14 +54,14 @@ export default function Keypad({ usedKeys }) {
                         <div
                             key={i}
                             onClick={() => handleClick(letter)}
-                            className={`sm:w-10 m-1 w-9 h-12 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
+                            className={`sm:w-10 sm:h-12 m-1 w-6 h-10 flex items-center justify-center rounded bg-lightGray ${color} hover:cursor-pointer`}>
                             <h3 className="uppercase font-bold">{letter}</h3>
                         </div>
                     )
                 })}
                 <div
                     onClick={() => handleClick('Backspace')}
-                    className={`m-1 w-14 h-12 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
+                    className={`sm:h-12 sm:w-12 m-1 w-10 h-10 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
                     <Image src={arrow} alt="Back" />
                 </div>
             </div>
