@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Words from '../data/words.json';
 
 export default function useWordle(solution) {
     const [turn, setTurn] = useState(0);
@@ -7,6 +8,12 @@ export default function useWordle(solution) {
     const [history, setHistory] = useState([]);
     const [isCorrect, setIsCorrect] = useState(false);
     const [usedKeys, setUsedKeys] = useState({});
+    const [error, setError] = useState(null);
+
+    let words = []
+    Words.solutions.forEach(word => {
+        words.push(word.word)
+    })
 
     const formatGuess = () => {
         let array = [...solution];
@@ -38,8 +45,7 @@ export default function useWordle(solution) {
             let newGuesses = [...cur];
             newGuesses[turn] = formatted;
             return newGuesses;
-        });
-        setHistory(cur => [...cur, formatted]);
+        });  
         setTurn(turn + 1);
         setUsedKeys((cur) => {
             formatted.forEach(letter => {
@@ -65,17 +71,22 @@ export default function useWordle(solution) {
     const handleKeyUp = ({ key }) => {
         if (key === 'Enter') {
             if (turn > 5) {
-                console.log('No more turns !');
+                setError('No more turns !');
                 return;
             }
             if (history.includes(currentGuess)) {
-               console.log('Already guessed !');
+               setError('Already guessed !');
                return;
             }
             if (currentGuess.length !== 5) {
-                console.log('Word must be 5 letters long !');
+                setError('Word must be 5 letters long !');
                 return;
             }
+            if (!words.includes(currentGuess)) {
+                setError('Word not found !');
+                return;
+            }
+            setHistory([...history, currentGuess]);
             const formatted = formatGuess();
             addGuess(formatted);
         }
@@ -96,7 +107,9 @@ export default function useWordle(solution) {
         allGuesses,
         isCorrect,
         handleKeyUp,
-        usedKeys
+        usedKeys,
+        error, 
+        setError
     }
 }
 

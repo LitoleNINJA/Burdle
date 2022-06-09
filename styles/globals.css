@@ -103,3 +103,65 @@ p {
 .modal {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.btn {
+  overflow: hidden;
+  max-width: 50px;
+  -webkit-transition: max-width 0.5s ease-in-out;
+  transition: max-width 0.5s ease-in-out;
+}
+.btn:hover {
+  max-width: 300px;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+#alert-2 {
+  background-color: #7c1818;
+  position: absolute;
+  z-index: 10;
+  top: 2rem;
+}
+
+.menuItem {
+  transition: 0.3s ease;
+}
+.menuItem:hover {
+  cursor: pointer;
+  padding: 6px 0;
+  border-top: 4px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
+}

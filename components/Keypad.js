@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import arrow from '../data/left.png';
+import enter from '../data/enter.png';
 export default function Keypad({ usedKeys }) {
 
     const letters = [
@@ -45,8 +46,8 @@ export default function Keypad({ usedKeys }) {
             <div className="keypad flex flex-row justify-center flex-wrap" >
                 <div
                     onClick={() => handleClick('Enter')}
-                    className={`sm:h-12 sm:w-20 m-1 w-18 h-10 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
-                    <h3 className="uppercase font-bold">ENTER</h3>
+                    className={`sm:h-12 sm:w-12 m-1 w-18 h-10 flex items-center justify-center rounded bg-lightGray hover:cursor-pointer`}>
+                    <Image src={enter} alt="Enter" />
                 </div>
                 {letters[2].map((letter, i) => {
                     const color = usedKeys[letter];
