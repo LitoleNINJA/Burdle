@@ -19,7 +19,7 @@ export default function Home() {
         <title>Burdle</title>
       </Head>
       <div className="flex flex-col items-center bg-black p-4 divide-y-2 divide-gray">
-        <h1 className='lg:text-5xl md:text-4xl sm:text-3xl text-xl font-bold'>Burdle - Better Wordle</h1>
+        <h1 className='lg:text-5xl md:text-4xl sm:text-3xl text-xl ml-4 font-bold'>Burdle - Better Wordle</h1>
         {solution && <Wordle solution={solution} />}
       </div>
     </>
